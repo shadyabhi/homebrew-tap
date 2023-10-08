@@ -5,13 +5,13 @@
 class Calsync < Formula
   desc ""
   homepage "http://github.com/shadyabhi/calsync"
-  version "0.0.24"
+  version "0.0.25"
 
   depends_on "ical-buddy"
 
   on_macos do
-    url "https://github.com/shadyabhi/calsync/releases/download/v0.0.24/calsync_Darwin_all.tar.gz"
-    sha256 "26a9856fc48ee2ec455532346ecb5d7fd5796d1d9fc0752641871dd5fbd6dd5c"
+    url "https://github.com/shadyabhi/calsync/releases/download/v0.0.25/calsync_Darwin_all.tar.gz"
+    sha256 "726a5b1976074b425829af095b03aa052b216ab54fc6aa1526908f636ab69708"
 
     def install
       bin.install "calsync"
@@ -20,16 +20,16 @@ class Calsync < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.24/calsync_Linux_arm64.tar.gz"
-      sha256 "a86f355599851aaeb3cf0a52839be58a608e15f86e22fc34b8373b0c7fd6ac9e"
+      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.25/calsync_Linux_arm64.tar.gz"
+      sha256 "55d80bcfad0b953d431248c74513b2506ff509e332cd6f5b98d6831e3ba1d079"
 
       def install
         bin.install "calsync"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.24/calsync_Linux_x86_64.tar.gz"
-      sha256 "152dbc4a63f9cd8c234c3b9e01f9f78bae620a5cf746f0cf52f0e277c98f7308"
+      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.25/calsync_Linux_x86_64.tar.gz"
+      sha256 "db4dac02dd44785d7a6cdf40155c17db0f68714f85d56a6c47f594f942314923"
 
       def install
         bin.install "calsync"
