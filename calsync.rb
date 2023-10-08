@@ -5,13 +5,13 @@
 class Calsync < Formula
   desc "Sync a local calendar to a remote Google Calendar"
   homepage "http://github.com/shadyabhi/calsync"
-  version "0.0.30"
+  version "0.0.31"
 
   depends_on "ical-buddy"
 
   on_macos do
-    url "https://github.com/shadyabhi/calsync/releases/download/v0.0.30/calsync_Darwin_all.tar.gz"
-    sha256 "efccf16177b17b896286166388697dfbad2e77946ebbfc418d0afa88381fab4c"
+    url "https://github.com/shadyabhi/calsync/releases/download/v0.0.31/calsync_Darwin_all.tar.gz"
+    sha256 "eb62ee39c2f0078b0c3d635d8ae5b1230f0b7172cf2c20a28b846dfbe0eed72a"
 
     def install
       bin.install "calsync"
@@ -19,17 +19,17 @@ class Calsync < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.30/calsync_Linux_arm64.tar.gz"
-      sha256 "31afdc44a78a0e5bbf5c83ff566754e4993f8fd12ce4f3e5f3f2da06dce32659"
+    if Hardware::CPU.intel?
+      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.31/calsync_Linux_x86_64.tar.gz"
+      sha256 "3d073999719dae495e5052d9dd60826e7dd67db63d14128d93b356d2482c1cd2"
 
       def install
         bin.install "calsync"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.30/calsync_Linux_x86_64.tar.gz"
-      sha256 "214abbbc78bd4935e0445458e78f791b7acb274222d3d2848f8e90b9bbbd679b"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.31/calsync_Linux_arm64.tar.gz"
+      sha256 "caccac83540d42c59879bdbd7f5921f7250e4e7eece69a4aa35b8799412ddeaf"
 
       def install
         bin.install "calsync"
@@ -41,8 +41,8 @@ class Calsync < Formula
     run [opt_bin/"calsync"]
     run_type :interval
     interval 300
-    log_path var"/log/syncthing.out.log"
-    error_log_path var"/log/syncthing.err.log"
+    log_path "/usr/local/var/log/calsync.out.log"
+    error_log_path "/usr/local/var/log/calsync.err.log"
     working_dir HOMEBREW_PREFIX
   end
 end
