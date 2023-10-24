@@ -5,13 +5,13 @@
 class Calsync < Formula
   desc "Sync a local calendar to a remote Google Calendar"
   homepage "http://github.com/shadyabhi/calsync"
-  version "0.0.38"
+  version "0.0.40"
 
   depends_on "ical-buddy"
 
   on_macos do
-    url "https://github.com/shadyabhi/calsync/releases/download/v0.0.38/calsync_Darwin_all.tar.gz"
-    sha256 "ded72479433ffd656ea0c9ad4f41e146ad0c83423534694c3dbe41e4583e8dc1"
+    url "https://github.com/shadyabhi/calsync/releases/download/v0.0.40/calsync_Darwin_all.tar.gz"
+    sha256 "4816eb2dac2e02baf547ad1bc29a5dfad4441a31ad33e27e41866da37f1c14a1"
 
     def install
       bin.install "calsync"
@@ -20,16 +20,16 @@ class Calsync < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.38/calsync_Linux_arm64.tar.gz"
-      sha256 "1e0018a0a236a5603cd76d63afc4f1c7883c70cf6c2d10a4099999d36706c32a"
+      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.40/calsync_Linux_arm64.tar.gz"
+      sha256 "c1dc9bfcdaecc35f7382aa46649782ad2b7725514c0b7f13fcea8513d9c81fb3"
 
       def install
         bin.install "calsync"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.38/calsync_Linux_x86_64.tar.gz"
-      sha256 "d7527fcc4e7b7259d0217b6e63715135c95952166ef7f667a271935c88e09a40"
+      url "https://github.com/shadyabhi/calsync/releases/download/v0.0.40/calsync_Linux_x86_64.tar.gz"
+      sha256 "bfc8fcea17ccb03b0799e0daf2070f5850b28a8f624d0cf1b7cb49c33e08fa84"
 
       def install
         bin.install "calsync"
@@ -37,12 +37,9 @@ class Calsync < Formula
     end
   end
 
-  service do
-    run [opt_bin/"calsync"]
-    run_type :interval
-    interval 300
-    log_path "/usr/local/var/log/calsync.out.log"
-    error_log_path "/usr/local/var/log/calsync.err.log"
-    working_dir HOMEBREW_PREFIX
+  def caveats
+    <<~EOS
+      For install instructions, visit: https://github.com/shadyabhi/calsync/wiki
+    EOS
   end
 end
