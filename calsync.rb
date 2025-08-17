@@ -5,11 +5,11 @@
 class Calsync < Formula
   desc "Sync a local calendar to a remote Google Calendar"
   homepage "http://github.com/shadyabhi/calsync"
-  version "0.1.21"
+  version "0.1.22"
 
   on_macos do
-    url "https://github.com/shadyabhi/calsync/releases/download/v0.1.21/calsync_Darwin_all.tar.gz"
-    sha256 "0eb985f07ff4cc7099e320cf8142e3ddfeddc53c6fab7c1d078df78b09c4957d"
+    url "https://github.com/shadyabhi/calsync/releases/download/v0.1.22/calsync_Darwin_all.tar.gz"
+    sha256 "614b4e0fe166c3a78e0511bf91b95828c90f0a83cdd62a782312921a880e7e0a"
 
     def install
       bin.install "calsync"
@@ -18,15 +18,15 @@ class Calsync < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/shadyabhi/calsync/releases/download/v0.1.21/calsync_Linux_x86_64.tar.gz"
-      sha256 "a2378e422f7cd4e2c73a425f4666edc20de645b83bafc1ba7eebc6e9597942ff"
+      url "https://github.com/shadyabhi/calsync/releases/download/v0.1.22/calsync_Linux_x86_64.tar.gz"
+      sha256 "beb42b7ca2b45b5cd59863c212025832249e733e7e5c1e5b5d59d4c36dc1f1d3"
       def install
         bin.install "calsync"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/shadyabhi/calsync/releases/download/v0.1.21/calsync_Linux_arm64.tar.gz"
-      sha256 "5e17c4a6b0a0f9aebcc1985e829cc4e553d1c253d4363c079b918ac3d60142d5"
+      url "https://github.com/shadyabhi/calsync/releases/download/v0.1.22/calsync_Linux_arm64.tar.gz"
+      sha256 "b6d7149d45aa05ca7e5109f0f036b583b51606ffd6095137b85b96681185c577"
       def install
         bin.install "calsync"
       end
