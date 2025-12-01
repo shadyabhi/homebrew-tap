@@ -5,11 +5,11 @@
 class Mantee < Formula
   desc "A TUI for reading man pages"
   homepage "https://github.com/shadyabhi/mantee"
-  version "0.0.3"
+  version "0.0.4"
 
   on_macos do
-    url "https://github.com/shadyabhi/mantee/releases/download/v0.0.3/mantee_Darwin_all.tar.gz"
-    sha256 "7d0fd2aebfdb63dbd401075e4f4525a6df284164e22848cf00520e1c5e97e51a"
+    url "https://github.com/shadyabhi/mantee/releases/download/v0.0.4/mantee_Darwin_all.tar.gz"
+    sha256 "0afb61c46bd377cc7b7024871034fe704e3896c7036a870f11d74e23fc51bd9f"
 
     def install
       bin.install "mantee"
@@ -18,15 +18,15 @@ class Mantee < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/shadyabhi/mantee/releases/download/v0.0.3/mantee_Linux_x86_64.tar.gz"
-      sha256 "dbba8ad77e3800377d9bb79d47be3b8ce73d0b1d73b1fc2d5a0392d3deb9c238"
+      url "https://github.com/shadyabhi/mantee/releases/download/v0.0.4/mantee_Linux_x86_64.tar.gz"
+      sha256 "852986b3a6ab191dc043a25249b4235be3a60590a7c8cb67e037967b53a0a3ad"
       def install
         bin.install "mantee"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/shadyabhi/mantee/releases/download/v0.0.3/mantee_Linux_arm64.tar.gz"
-      sha256 "ea3a44724cc2e89f0ec252f2389d98eea2f667f7b6f1c42ca12722d739a4371a"
+      url "https://github.com/shadyabhi/mantee/releases/download/v0.0.4/mantee_Linux_arm64.tar.gz"
+      sha256 "5028f857d9420141b593fe93b9f510d882b75f00246cc121c6a7aac2f9897758"
       def install
         bin.install "mantee"
       end
