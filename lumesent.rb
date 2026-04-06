@@ -24,17 +24,21 @@ class Lumesent < Formula
   end
 
   def post_install
-    system "rm", "-rf", "/Applications/Lumesent.app"
-    system "ln", "-sf", "#{prefix}/Lumesent.app", "/Applications/Lumesent.app"
+    apps_dir = Pathname(Dir.home)/"Applications"
+    apps_dir.mkpath
+    system "rm", "-rf", "#{apps_dir}/Lumesent.app"
+    system "ln", "-sf", "#{prefix}/Lumesent.app", "#{apps_dir}/Lumesent.app"
   end
 
   def post_uninstall
-    app_path = Pathname("/Applications/Lumesent.app")
+    app_path = Pathname(Dir.home)/"Applications"/"Lumesent.app"
     app_path.unlink if app_path.symlink?
   end
 
   def caveats
     <<~EOS
+      Lumesent.app has been linked to ~/Applications/Lumesent.app
+
       The app requires Full Disk Access and Accessibility permissions.
       Grant these in System Settings → Privacy & Security after first launch.
     EOS
