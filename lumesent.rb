@@ -22,13 +22,14 @@ class Lumesent < Formula
     # Install the .app bundle into the prefix
     prefix.install "Lumesent.app"
 
-    # Create a bin wrapper so `lumesent` opens the app (and forwards CLI args)
+    # Create a bin wrapper that launches via `open` (required for framework signing)
+    # CLI flags like --send are passed via open --args
     (bin/"lumesent").write <<~SH
       #!/bin/bash
       if [ $# -eq 0 ]; then
         open "#{prefix}/Lumesent.app"
       else
-        exec "#{prefix}/Lumesent.app/Contents/MacOS/Lumesent" "$@"
+        open "#{prefix}/Lumesent.app" --args "$@"
       fi
     SH
   end
