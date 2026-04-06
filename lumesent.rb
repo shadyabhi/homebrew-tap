@@ -23,14 +23,16 @@ class Lumesent < Formula
     prefix.install "Lumesent.app"
   end
 
+  def post_install
+    ln_sf prefix/"Lumesent.app", "/Applications/Lumesent.app"
+  end
+
+  def post_uninstall
+    rm_f "/Applications/Lumesent.app"
+  end
+
   def caveats
     <<~EOS
-      Lumesent.app has been installed to:
-        #{prefix}/Lumesent.app
-
-      To add it to your Applications folder:
-        ln -sf #{prefix}/Lumesent.app /Applications/Lumesent.app
-
       The app requires Full Disk Access and Accessibility permissions.
       Grant these in System Settings → Privacy & Security after first launch.
     EOS
