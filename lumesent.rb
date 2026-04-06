@@ -24,11 +24,8 @@ class Lumesent < Formula
   end
 
   def post_install
-    app_path = Pathname("/Applications/Lumesent.app")
-    # Remove existing app/symlink so we can place ours
-    app_path.rmtree if app_path.exist? && !app_path.symlink?
-    app_path.unlink if app_path.symlink?
-    ln_sf prefix/"Lumesent.app", app_path
+    system "rm", "-rf", "/Applications/Lumesent.app"
+    system "ln", "-sf", "#{prefix}/Lumesent.app", "/Applications/Lumesent.app"
   end
 
   def post_uninstall
