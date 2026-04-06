@@ -4,6 +4,7 @@ class Lumesent < Formula
   url "https://github.com/shadyabhi/Lumesent/archive/refs/tags/v1.2.16.tar.gz"
   sha256 "890707e1d82f122db8171d92038fddfac48bc799d9b3a5072d1e5c9bc499914c"
   license "MIT"
+  head "https://github.com/shadyabhi/Lumesent.git", branch: "main"
 
   depends_on xcode: ["15.0", :build]
   depends_on macos: :sonoma
